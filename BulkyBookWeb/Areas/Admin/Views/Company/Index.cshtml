@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<Company>
+@*<partial name="_Notification" />*@
+
+   @*<h1>Index Product</h1>*@
+
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2 class="text-primary">Company</h2>
+            </div>   
+            <div class="col-6 text-end">
+                <a asp-controller="Company" asp-action="Upsert" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i>
+                    Create New Company
+                </a> 
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <table id="tblCompanyData" class="table table-bordered table-striped" stype="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>StreetAddress</th>
+                <th>City</th>
+                <th>State</th>
+                <th>PostalCode</th>
+                <th>PhoneNumber</th>
+                <th></th>
+            </tr>
+        </thead>
+
+    </table>
+
+    @section Scripts{
+        <script src="~/js/company.js"></script>
+    }

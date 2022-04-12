@@ -6,6 +6,7 @@ using BulkyBook.Models.ViewModels;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -174,7 +175,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
             if (obj == null)
             {
-                return Json(new { sucess = false, message = "Error while deleting."});
+                return Json(new { success = false, message = "Error while deleting."});
             }
 
             if (obj.ImageUrl != null)
@@ -190,7 +191,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             _unitOfWork.Product.Remove(obj);
             _unitOfWork.Save();
             //TempData["success"] = "Delete Successful";
-            return Json(new { sucess = true, message = "Delete Successful"});
+            return Json(new { success = true, message = "Delete Successful"});
         }
 
         #endregion

@@ -57,7 +57,7 @@ namespace BulkyBookWeb.Controllers
             {
 
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
-                _unitOfWork.Save();
+                //_unitOfWork.Save();
                 //HttpContext.Session.SetInt32(SD.SessionCart,
                 //    _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
             }
@@ -65,9 +65,11 @@ namespace BulkyBookWeb.Controllers
             {
                 _unitOfWork.ShoppingCart.IncrementCount(cartFromDb, shoppingCart.Count);
                 //_unitOfWork.ShoppingCart.Add(shoppingCart);
-                _unitOfWork.Save();
+                //_unitOfWork.Save();
             }
 
+            _unitOfWork.Save();
+            HttpContext.Session.SetInt32(SD.SessionCart, _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
 
             return RedirectToAction(nameof(Index));
         }

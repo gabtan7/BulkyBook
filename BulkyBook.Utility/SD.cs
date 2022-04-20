@@ -27,6 +27,5 @@ namespace BulkyBook.Utility
 
         public const string SessionCart = "SessionShoppingCart";
 
-
     }
 } 
